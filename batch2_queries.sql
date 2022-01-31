@@ -47,3 +47,6 @@ SELECT count(distinct(salary)) FROM emp;
 SELECT count(*) FROM emp;
 SELECT first_name, UPPER(first_name), LOWER(first_name) from emp;
 
+SELECT count(first_name) FROM emp;
+SELECT * FROM emp;
+SELECT count(distinct(first_name)) FROM emp;
