@@ -96,7 +96,7 @@ VALUES(102, 'Suresh', 7485968945, current_date(), 52000);
 
 COMMIT;
 SELECT * FROM cg_emps;
-
+SELECT * FROM cg_emps;
 
 
 
