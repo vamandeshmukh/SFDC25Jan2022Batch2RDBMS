@@ -31,5 +31,19 @@ SELECT first_name, salary FROM emp WHERE eid = 104;
 -- Which employees have salary more than 50000?
 SELECT eid, first_name, salary FROM emp WHERE salary > 50000;
 
+-- Display the list of employees in the order of salary. 
+SELECT eid, first_name, salary FROM emp ORDER BY salary; 
+SELECT eid, first_name, salary FROM emp ORDER BY salary DESC; 
+SELECT eid, first_name, salary FROM emp ORDER BY first_name; 
 
+SELECT eid, first_name, salary FROM emp WHERE salary > 50000 ORDER BY salary; 
+
+-- What is the max salary in the emp table? 
+SELECT max(salary) FROM emp;
+SELECT min(salary) FROM emp;
+SELECT avg(salary) FROM emp;
+SELECT sum(salary) FROM emp;
+SELECT count(distinct(salary)) FROM emp;
+SELECT count(*) FROM emp;
+SELECT first_name, UPPER(first_name), LOWER(first_name) from emp;
 
