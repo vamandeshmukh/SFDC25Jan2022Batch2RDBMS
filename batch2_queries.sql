@@ -1,4 +1,4 @@
-
+ 
 -- SFDC 25 Jan 2022 Batch 2
 SELECT current_date();
 -- create a table 
