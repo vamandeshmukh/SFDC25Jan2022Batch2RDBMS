@@ -18,7 +18,17 @@ SELECT * FROM emp;
 
 -- Give me all the salaries data from EMP table. 
 SELECT salary FROM emp;
-
+ 
 -- Give me all the names and salaries data from EMP table. 
-SELECT first_name, salary FROM emp;
+SELECT first_name, salary FROM emp; 
+
+-- How much is Sonu's salary?
+SELECT first_name, salary FROM emp WHERE first_name = 'Sonu'; 
+
+-- How much is Sonu's salary? Sonu = 104
+SELECT first_name, salary FROM emp WHERE eid = 104;
+
+-- Which employees have salary more than 50000?
+SELECT eid, first_name, salary FROM emp WHERE salary > 50000;
+
 
