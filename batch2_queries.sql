@@ -10,10 +10,15 @@ INSERT INTO emp (eid, first_name, salary) VALUES (103, 'Tonu', 45000);
 INSERT INTO emp (eid, first_name, salary) VALUES (104, 'Sonu', 55000);
 INSERT INTO emp (eid, first_name, salary) VALUES (105, 'Gonu', 65000);
 COMMIT; 
--- view the records 
+-- view the records - SELECT column_names FROM table_name;
+-- view all the records - SELECT * FROM table_name;
+
+-- Give me all the data from EMP table. 
 SELECT * FROM emp;
 
+-- Give me all the salaries data from EMP table. 
+SELECT salary FROM emp;
 
-
-
+-- Give me all the names and salaries data from EMP table. 
+SELECT first_name, salary FROM emp;
 
