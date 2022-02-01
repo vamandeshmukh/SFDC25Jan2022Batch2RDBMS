@@ -120,16 +120,19 @@ INSERT INTO emps (eid, first_name, salary) VALUES (103, 'Tonu', 55000);
 
 DROP TABLE emps;
 
+
 CREATE TABLE deps (
 did INT PRIMARY KEY, 
 dname VARCHAR(40),
 city VARCHAR(40));
 
+-- igonre this syntax for emps table 
 CREATE TABLE emps(
 eid INT PRIMARY KEY, 
 first_name VARCHAR(10), 
 salary DOUBLE, 
 did INT REFERENCES deps(did));
+-- igonre the above syntax for emps table 
 
 SELECT * FROM emps;
 SELECT * FROM deps;
@@ -151,6 +154,7 @@ INSERT INTO emps (eid, first_name, salary, did) VALUES (107, 'Gonu', 55000, 50);
 
 DESC emps;
 
+-- use this syntax for emps2 table 
 CREATE TABLE emps2(
 eid INT PRIMARY KEY, 
 first_name VARCHAR(10), 
@@ -166,3 +170,46 @@ INSERT INTO emps2 (eid, first_name, salary, did) VALUES (106, 'Gonu', 55000, 40)
 
 SELECT * FROM deps;
 SELECT * FROM emps2;
+
+-- DELETE FROM tablename where condition;
+-- parent table - deps
+-- child tables - emps, emps2, emps3, ...  
+
+-- if a record from parent table (deps) is deleted what should happen to records in child table (deps3, deps4)?
+-- on delete in constraint 
+
+-- 1. on delete set null 
+
+CREATE TABLE emps3(
+eid INT PRIMARY KEY, 
+first_name VARCHAR(10), 
+salary DOUBLE, 
+did INT, FOREIGN KEY (did) REFERENCES deps(did) ON DELETE SET NULL);
+
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (101, 'Sonu', 55000, 50);
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (102, 'Monu', 55000, 30);
+INSERT INTO deps (did, dname, city) VALUES (50, 'Marketing', 'Delhi');
+
+SELECT * FROM deps; 
+SELECT * FROM emps3; 
+
+DELETE FROM deps WHERE did = 50; 
+SELECT * FROM emps3; 
+
+-- 2. on delete cascade 
+CREATE TABLE emps4(
+eid INT PRIMARY KEY, 
+first_name VARCHAR(10), 
+salary DOUBLE, 
+did INT, FOREIGN KEY (did) REFERENCES deps(did) ON DELETE CASCADE);
+
+INSERT INTO emps4 (eid, first_name, salary, did) VALUES (101, 'Sonu', 55000, 50);
+INSERT INTO emps4 (eid, first_name, salary, did) VALUES (102, 'Monu', 55000, 30);
+INSERT INTO deps (did, dname, city) VALUES (50, 'Marketing', 'Delhi');
+
+SELECT * FROM deps; 
+SELECT * FROM emps4; 
+
+DELETE FROM deps WHERE did = 50; 
+SELECT * FROM emps4; 
+
