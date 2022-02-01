@@ -98,6 +98,19 @@ COMMIT;
 SELECT * FROM cg_emps;
 SELECT * FROM cg_emps;
 
+SELECT * FROM emp ORDER BY eid;
 
+INSERT INTO emp (eid, first_name, salary) VALUES (103, 'Tonu', 45000);
+INSERT INTO emp (eid, first_name, salary) VALUES (NULL, 'Tonu', 45000);
 
-
+CREATE TABLE emp(eid INT, first_name VARCHAR(10), salary DOUBLE);
+-- create table with PK - 
+-- CREATE TABLE emps(eid INT constraint emps_pk PRIMARY KEY, first_name VARCHAR(10), salary DOUBLE);
+CREATE TABLE emps(eid INT PRIMARY KEY, first_name VARCHAR(10), salary DOUBLE);
+SELECT * FROM emps;
+INSERT INTO emps (eid, first_name, salary) VALUES (101, 'Sonu', 50000);
+INSERT INTO emps (eid, first_name, salary) VALUES (102, 'Monu', 45000);
+-- INSERT INTO emps (eid, first_name, salary) VALUES (101, 'Sonu', 50000); -- error 
+INSERT INTO emps (eid, first_name, salary) VALUES (NULL, 'Sonu', 50000);
+INSERT INTO emps  VALUES (NULL, 'Sonu', 50000);
+INSERT INTO emps (first_name, salary) VALUES ( 'Sonu', 50000);
