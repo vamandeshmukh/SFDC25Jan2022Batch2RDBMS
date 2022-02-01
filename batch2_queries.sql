@@ -262,4 +262,12 @@ SELECT * FROM emps2 e JOIN deps d ON e.did = d.did ORDER BY e.eid;
 -- left outer join - matching records from both the tables and non-matching records from left table 
 SELECT * FROM emps2 e LEFT JOIN deps d ON e.did = d.did ORDER BY e.eid; 
 
+-- right outer join - matching records from both the tables and non-matching records from right table 
+SELECT * FROM emps2 e JOIN deps d ON e.did = d.did ORDER BY e.eid; 
+
+-- full outer join - matching and non-matching records from both the tables 
+SELECT * FROM emps2 e LEFT JOIN deps d ON e.did = d.did 
+UNION 
+SELECT * FROM emps2 e2 RIGHT JOIN deps d2 ON e2.did = d2.did 
+ORDER BY eid; 
 
