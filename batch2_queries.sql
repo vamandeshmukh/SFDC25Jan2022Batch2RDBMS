@@ -175,7 +175,7 @@ SELECT * FROM emps2;
 -- parent table - deps
 -- child tables - emps, emps2, emps3, ...  
 
--- if a record from parent table (deps) is deleted what should happen to records in child table (deps3, deps4)?
+-- if a record from parent table (deps) is deleted what should happen to records in child table (emps3, emps4)?
 -- on delete in constraint 
 
 -- 1. on delete set null 
@@ -212,4 +212,32 @@ SELECT * FROM emps4;
 
 DELETE FROM deps WHERE did = 50; 
 SELECT * FROM emps4; 
+
+-- In which city does Sonu (101) work?
+
+-- JOINs 
+-- joins syntax  SELECT columns FROM table1 JOIN table2 ON table1.fk = table2.pk;
+
+-- JOIN queries 
+SELECT eid, first_name, city 
+FROM emps2 
+JOIN deps 
+ON emps2.did = deps.did
+WHERE eid = 101;
+-- WHERE first_name = 'Sonu';
+
+-- sopecify tablename for columns 
+SELECT eid, first_name, city, emps2.did 
+FROM emps2 
+JOIN deps 
+ON emps2.did = deps.did
+WHERE eid = 101;
+
+-- specify tablename aliases for columns 
+SELECT e.eid, e.first_name, d.city, e.did 
+FROM emps2 e
+JOIN deps d
+ON e.did = d.did
+WHERE e.eid = 101;
+
 
