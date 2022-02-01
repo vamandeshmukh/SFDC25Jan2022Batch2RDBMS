@@ -271,3 +271,11 @@ UNION
 SELECT * FROM emps2 e2 RIGHT JOIN deps d2 ON e2.did = d2.did 
 ORDER BY eid; 
 
+SELECT * FROM emps2;
+
+SELECT eid, first_name, salary FROM emps2 WHERE salary = (SELECT max(salary) FROM emps2);
+
+
+
+
+
