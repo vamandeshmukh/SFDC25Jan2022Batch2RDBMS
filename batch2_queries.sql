@@ -273,8 +273,16 @@ ORDER BY eid;
 
 SELECT * FROM emps2;
 
+-- subquery = query within a query 
+-- Find details of the employee who has highest salary. 
 SELECT eid, first_name, salary FROM emps2 WHERE salary = (SELECT max(salary) FROM emps2);
 
+-- Find details of the employee who has second highest salary. 
+SELECT eid, first_name, salary FROM emps2 WHERE salary = 
+(SELECT max(salary) FROM emps2 where salary < 
+(SELECT max(salary) FROM emps2));
+
+-- CREATE 
 
 
 
