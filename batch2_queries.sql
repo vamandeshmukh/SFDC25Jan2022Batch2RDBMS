@@ -114,3 +114,4 @@ INSERT INTO emps (eid, first_name, salary) VALUES (102, 'Monu', 45000);
 INSERT INTO emps (eid, first_name, salary) VALUES (NULL, 'Sonu', 50000);
 INSERT INTO emps  VALUES (NULL, 'Sonu', 50000);
 INSERT INTO emps (first_name, salary) VALUES ( 'Sonu', 50000);
+INSERT INTO emps (eid, first_name, salary) VALUES (103, 'Tonu', 55000);
