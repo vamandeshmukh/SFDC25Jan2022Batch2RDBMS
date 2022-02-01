@@ -305,5 +305,43 @@ SELECT did, max(salary) FROM emps99
 GROUP BY did
 ORDER BY did;
 
--- 
+-- create anothr table fotr this - 
+create table emps98 (select * from emps2);
 
+-- alter table 
+-- check the table sctucture - 
+
+describe emps98;
+desc emps98;
+-- As per govt order, start collecting aadhaar number of employees. 
+SELECT * FROM emps98;
+-- add a new column to an existing table 
+ALTER TABLE emps98 ADD aadhaar BIGINT unique;
+SELECT * FROM emps98;
+-- to add aadhaar for existing employees, update command - 
+UPDATE emps98 SET aadhaar = 123456789 WHERE eid = 102;
+UPDATE emps98 SET aadhaar = 457856789 WHERE eid = 101;
+SELECT * FROM emps98;
+INSERT INTO emps98 VALUES (106, 'Abcd', 55000, 20, 9876543210);
+-- create other DB objects 
+
+-- check length(aadhaar) >=12  
+ create table t1(c1 int, c2 varchar(10));
+SELECT * from t1; 
+-- sequence - generates numeric values in sequential order 
+-- can be used to insert PK values in tables 
+
+-- in oracle - 
+-- CREATE sequence sq1;
+-- CREATE sequence sq1 start with;
+-- CREATE sequence sq1 start with increment by;
+-- sq1.nextval
+
+-- in MySQL - AUTO_INCREMENT
+
+create table t2(c1 int AUTO_INCREMENT PRIMARY KEY, c2 varchar(10));
+insert into t2 values (1, 'A');
+insert into t2 (c2) values ('xyz');
+ SELECT * FROM t2; 
+ 
+ 
