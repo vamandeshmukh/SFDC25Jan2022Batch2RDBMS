@@ -282,8 +282,23 @@ SELECT eid, first_name, salary FROM emps2 WHERE salary =
 (SELECT max(salary) FROM emps2 where salary < 
 (SELECT max(salary) FROM emps2));
 
--- CREATE 
 
+-- where 
+delete from emps99;
+insert into emps99 (select * from emps3);
+SELECT * FROM emps99;
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (106, 'Sonu', 55000, 20);
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (107, 'Aonu', 75000, 30);
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (108, 'Bonu', 95000, 30);
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (109, 'Conu', 85000, 10);
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (110, 'Donu', 25000, 20);
+INSERT INTO emps3 (eid, first_name, salary, did) VALUES (111, 'Eonu', 35000, 30);
 
+COMMIT; 
 
+-- find the highest salary in the company. 
+SELECT max(salary) FROM emps99;
+
+-- find the highest salary in each deparetments. 
+SELECT did, max(salary) FROM emps99;
 
