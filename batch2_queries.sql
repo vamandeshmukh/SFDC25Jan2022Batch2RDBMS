@@ -115,3 +115,38 @@ INSERT INTO emps (eid, first_name, salary) VALUES (NULL, 'Sonu', 50000);
 INSERT INTO emps  VALUES (NULL, 'Sonu', 50000);
 INSERT INTO emps (first_name, salary) VALUES ( 'Sonu', 50000);
 INSERT INTO emps (eid, first_name, salary) VALUES (103, 'Tonu', 55000);
+
+-- create foreign key conatraint 
+
+DROP TABLE emps;
+
+CREATE TABLE deps (
+did INT PRIMARY KEY, 
+dname VARCHAR(40),
+city VARCHAR(40));
+
+CREATE TABLE emps(
+eid INT PRIMARY KEY, 
+first_name VARCHAR(10), 
+salary DOUBLE, 
+did INT REFERENCES deps(did));
+
+SELECT * FROM emps;
+SELECT * FROM deps;
+
+INSERT INTO deps (did, dname, city) VALUES (10, 'HR', 'Hyderabad');
+INSERT INTO deps (did, dname, city) VALUES (20, 'Admin', 'Pune');
+INSERT INTO deps (did, dname, city) VALUES (30, 'Sales', 'Bengaluru');
+
+INSERT INTO emps (eid, first_name, salary, did) VALUES (101, 'Sonu', 55000, 10);
+INSERT INTO emps (eid, first_name, salary, did) VALUES (102, 'Monu', 50000, 10);
+INSERT INTO emps (eid, first_name, salary, did) VALUES (103, 'Tonu', 60000, 20);
+INSERT INTO emps (eid, first_name, salary, did) VALUES (104, 'Sonu', 65000, 30);
+INSERT INTO emps (eid, first_name, salary, did) VALUES (105, 'Ponu', 45000, NULL);
+
+COMMIT; 
+
+INSERT INTO emps (eid, first_name, salary, did) VALUES (106, 'Ponu', 45000, 40);
+UPDATE deps SET did = did - 5;
+ROLLBACK;
+
