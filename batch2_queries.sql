@@ -147,6 +147,22 @@ INSERT INTO emps (eid, first_name, salary, did) VALUES (105, 'Ponu', 45000, NULL
 COMMIT; 
 
 INSERT INTO emps (eid, first_name, salary, did) VALUES (106, 'Ponu', 45000, 40);
-UPDATE deps SET did = did - 5;
-ROLLBACK;
+INSERT INTO emps (eid, first_name, salary, did) VALUES (107, 'Gonu', 55000, 50);
 
+DESC emps;
+
+CREATE TABLE emps2(
+eid INT PRIMARY KEY, 
+first_name VARCHAR(10), 
+salary DOUBLE, 
+did INT, FOREIGN KEY (did) REFERENCES deps(did));
+
+INSERT INTO emps2 (eid, first_name, salary, did) VALUES (101, 'Sonu', 55000, 10);
+INSERT INTO emps2 (eid, first_name, salary, did) VALUES (102, 'Monu', 50000, 10);
+INSERT INTO emps2 (eid, first_name, salary, did) VALUES (103, 'Tonu', 60000, 20);
+INSERT INTO emps2 (eid, first_name, salary, did) VALUES (104, 'Sonu', 65000, 30);
+INSERT INTO emps2 (eid, first_name, salary, did) VALUES (105, 'Ponu', 45000, NULL);
+INSERT INTO emps2 (eid, first_name, salary, did) VALUES (106, 'Gonu', 55000, 40); -- error 
+
+SELECT * FROM deps;
+SELECT * FROM emps2;
