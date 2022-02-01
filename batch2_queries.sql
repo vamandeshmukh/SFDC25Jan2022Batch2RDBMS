@@ -217,6 +217,7 @@ SELECT * FROM emps4;
 
 -- JOINs 
 -- joins syntax  SELECT columns FROM table1 JOIN table2 ON table1.fk = table2.pk;
+-- use these tables - deps and emps2 
 
 -- JOIN queries 
 SELECT eid, first_name, city 
@@ -234,10 +235,31 @@ ON emps2.did = deps.did
 WHERE eid = 101;
 
 -- specify tablename aliases for columns 
-SELECT e.eid, e.first_name, d.city, e.did 
+SELECT e.eid, e.first_name, d.city, d.did 
 FROM emps2 e
 JOIN deps d
 ON e.did = d.did
 WHERE e.eid = 101;
+
+SELECT * FROM deps; 
+SELECT * FROM emps2;
+
+-- work from this line onwards 
+
+INSERT INTO deps (did, dname, city) VALUES (60, 'Management', 'Kolkata');
+
+-- types of joins - 
+-- inner join - only matching records 
+-- outer join - 
+-- left outer join - matching records from both the tables and non-matching records from left table 
+-- right outer join - matching records from both the tables and non-matching records from right table 
+-- full outer join - matching and non-matching records from both the tables 
+
+-- inner join - only matching records 
+SELECT * FROM emps2 e JOIN deps d ON e.did = d.did ORDER BY e.eid; 
+ 
+ -- outer joins 
+-- left outer join - matching records from both the tables and non-matching records from left table 
+SELECT * FROM emps2 e LEFT JOIN deps d ON e.did = d.did ORDER BY e.eid; 
 
 
