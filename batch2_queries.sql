@@ -298,7 +298,10 @@ COMMIT;
 
 -- find the highest salary in the company. 
 SELECT max(salary) FROM emps99;
+SELECT * FROM emps99;
 
 -- find the highest salary in each deparetments. 
-SELECT did, max(salary) FROM emps99;
+SELECT did, max(salary) FROM emps99
+GROUP BY did
+ORDER BY did;
 
